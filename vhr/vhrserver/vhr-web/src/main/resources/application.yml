@@ -1,0 +1,36 @@
+spring:
+
+  datasource:
+    type: com.alibaba.druid.pool.DruidDataSource
+    username: root
+    password: Sl641024143!
+    url: jdbc:mysql://39.102.130.253:3306/vhr?useUnicode=true&characterEncoding=UTF-8&serverTimezone=Asia/Shanghai
+  rabbitmq:
+    username: admin
+    password: admin
+    host: 39.102.130.253
+    publisher-confirms: true
+    publisher-returns: true
+  redis:
+    host: 39.102.130.253
+    database: 0
+    port: 6379
+    #password: 123
+  cache:
+    cache-names: menus_cache
+  jpa:
+    hibernate:
+      ddl-auto: update
+    show-sql: true
+    database-platform: org.hibernate.dialect.MySQL5Dialect
+    generate-ddl: true
+
+
+server:
+  port: 8081
+  compression:
+    enabled: true
+fastdfs:
+  nginx:
+    host: http://39.102.130.253/
+
