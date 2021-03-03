@@ -56,7 +56,6 @@
         },
         computed: {
             routes() {
-				
                 return this.$store.state.routes;
             },
             user() {

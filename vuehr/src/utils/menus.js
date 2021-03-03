@@ -62,6 +62,9 @@ export const formatRoutes = (routes) => {
 				else if (component.startsWith("MaxMap")) {
 				    require(['../views/map/' + component + '.vue'], resolve);
 				}
+                else if (component.startsWith("User")) {
+                    require(['../views/user/' + component + '.vue'], resolve);
+                }
             }
         }
         fmRoutes.push(fmRouter);

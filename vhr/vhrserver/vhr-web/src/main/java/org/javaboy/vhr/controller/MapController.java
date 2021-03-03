@@ -15,18 +15,11 @@ public class MapController {
     @Autowired
     MapService mapService;
 
-
-
-
     @RequestMapping(value = "/map/manage/{id}",method = RequestMethod.DELETE)
     @ResponseBody
     public boolean deleteMap(@PathVariable Long id) {
         return mapService.deleteMap(id);
     }
-
-
-
-
 
     @RequestMapping(value = "/map/manage/",method = RequestMethod.POST)
     @ResponseBody

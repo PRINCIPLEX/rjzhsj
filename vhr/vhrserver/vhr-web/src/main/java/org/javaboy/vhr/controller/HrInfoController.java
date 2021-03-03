@@ -9,6 +9,7 @@ import org.springframework.beans.factory.annotation.Value;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 
@@ -40,7 +41,19 @@ public class HrInfoController {
     @PutMapping("/hr/info")
     public RespBean updateHr(@RequestBody Hr hr, Authentication authentication) {
         if (hrService.updateHr(hr) == 1) {
-            SecurityContextHolder.getContext().setAuthentication(new UsernamePasswordAuthenticationToken(hr, authentication.getCredentials(), authentication.getAuthorities()));
+            //SecurityContextHolder.getContext().setAuthentication(new UsernamePasswordAuthenticationToken(hr, authentication.getCredentials(), authentication.getAuthorities()));
+            return RespBean.ok("更新成功!");
+        }
+        return RespBean.error("更新失败!");
+    }
+
+    @PutMapping("/hr/info1")
+    public RespBean updateHr1(@RequestBody Hr hr, Authentication authentication) {
+        BCryptPasswordEncoder encoder = new BCryptPasswordEncoder();
+        String encodePass = encoder.encode(hr.getPassword());
+        hr.setPassword(encodePass);
+        if (hrService.insertSelective(hr) == 1) {
+            //SecurityContextHolder.getContext().setAuthentication(new UsernamePasswordAuthenticationToken(hr, authentication.getCredentials(), authentication.getAuthorities()));
             return RespBean.ok("更新成功!");
         }
         return RespBean.error("更新失败!");
@@ -52,6 +65,16 @@ public class HrInfoController {
         String pass = (String) info.get("pass");
         Integer hrid = (Integer) info.get("hrid");
         if (hrService.updateHrPasswd(oldpass, pass, hrid)) {
+            return RespBean.ok("更新成功!");
+        }
+        return RespBean.error("更新失败!");
+    }
+
+    @PutMapping("/hr/pass1")
+    public RespBean updateHrPasswd1(@RequestBody Map<String, Object> info) {
+        String pass = (String) info.get("pass");
+        Integer hrid = (Integer) info.get("hrid");
+        if (hrService.updateHrPasswd1(pass, hrid)) {
             return RespBean.ok("更新成功!");
         }
         return RespBean.error("更新失败!");

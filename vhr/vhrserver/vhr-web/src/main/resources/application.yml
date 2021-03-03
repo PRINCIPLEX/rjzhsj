@@ -12,10 +12,10 @@ spring:
     publisher-confirms: true
     publisher-returns: true
   redis:
-    host: 39.102.130.253
+    host: mabowen.online
     database: 0
     port: 6379
-    #password: 123
+    password: 123
   cache:
     cache-names: menus_cache
   jpa:

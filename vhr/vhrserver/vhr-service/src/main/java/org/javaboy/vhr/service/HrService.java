@@ -41,11 +41,16 @@ public class HrService implements UserDetailsService {
     }
 
     public List<Hr> getAllHrs(String keywords) {
-        return hrMapper.getAllHrs(HrUtils.getCurrentHr().getId(),keywords);
+        return hrMapper.getAllHrs(3,keywords);
+        //return hrMapper.getAllHrs(HrUtils.getCurrentHr().getId(),keywords);
     }
 
     public Integer updateHr(Hr hr) {
         return hrMapper.updateByPrimaryKeySelective(hr);
+    }
+
+    public Integer insertSelective(Hr hr) {
+        return hrMapper.insertSelective(hr);
     }
 
     @Transactional
@@ -70,6 +75,19 @@ public class HrService implements UserDetailsService {
         Hr hr = hrMapper.selectByPrimaryKey(hrid);
         BCryptPasswordEncoder encoder = new BCryptPasswordEncoder();
         if (encoder.matches(oldpass, hr.getPassword())) {
+            String encodePass = encoder.encode(pass);
+            Integer result = hrMapper.updatePasswd(hrid, encodePass);
+            if (result == 1) {
+                return true;
+            }
+        }
+        return false;
+    }
+
+    public boolean updateHrPasswd1(String pass, Integer hrid) {
+        Hr hr = hrMapper.selectByPrimaryKey(hrid);
+        BCryptPasswordEncoder encoder = new BCryptPasswordEncoder();
+        if (true) {
             String encodePass = encoder.encode(pass);
             Integer result = hrMapper.updatePasswd(hrid, encodePass);
             if (result == 1) {
