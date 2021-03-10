@@ -34,4 +34,6 @@ public class MapEntity  implements Serializable {
    	@Column(name = "map_key" )
 	private String mapKey;
 
+   	@Column(name = "hr")
+	private String hr;
 }

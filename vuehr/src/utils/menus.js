@@ -65,6 +65,12 @@ export const formatRoutes = (routes) => {
                 else if (component.startsWith("User")) {
                     require(['../views/user/' + component + '.vue'], resolve);
                 }
+                else if (component.startsWith("AddMap")) {
+                    require(['../views/map/' + component + '.vue'], resolve);
+                }
+                else if (component.startsWith("olMap")) {
+                    require(['../views/map/' + component + '.vue'], resolve);
+                }
             }
         }
         fmRoutes.push(fmRouter);

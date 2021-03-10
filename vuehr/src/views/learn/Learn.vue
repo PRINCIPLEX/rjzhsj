@@ -1,7 +1,7 @@
 <template>
 	<div class="test_two_box">
 		<video id="myVideo" class="video-js">
-			<source src="https://mpvideo.qpic.cn/0bf2v4aaiaaajqaeao2zl5pfbl6dasxqabaa.f10002.mp4?dis_k=5beeec95f65c698b308e3cf6ec3c3c18&dis_t=1614755444&spec_id=MzI1NDY0MTkzNQ%3D%3D1614755763&vid=wxv_1230044624060841984&format_id=10002" type="video/mp4">
+			<source src="../../../public/1.mp4" type="video/mp4">
 		</video>
 	</div>
 </template>

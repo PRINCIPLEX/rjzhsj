@@ -14,6 +14,7 @@
     "element-ui": "^2.12.0",
     "font-awesome": "^4.7.0",
     "obj2gltf": "^3.1.0",
+    "ol": "^6.5.0",
     "video.js": "^7.11.4",
     "vue": "^2.6.10",
     "vue-baidu-map": "^0.21.22",

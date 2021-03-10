@@ -12,16 +12,10 @@
 							问题: {{question.question}}
 						</div>
 					</div>
-
-				</div>
-				<div class="container_experience1">
-					<div>
-						心得
-					</div>
 				</div>
 				<div class="container_experience2">
 					<div>
-						------{{question.experience}}
+            心得:{{question.experience}}
 					</div>
 				</div>
 			</el-card>
